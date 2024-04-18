@@ -1,0 +1,15 @@
+{
+    "editor.trimAutoWhitespace": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.rulers": [120],
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "flake8.args": ["--config=${workspaceFolder}/.code_quality/.flake8"],
+}
