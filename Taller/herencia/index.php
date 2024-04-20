@@ -1,5 +1,4 @@
 <?php
-require_once './Circulo.php';
 require_once './Rectangulo.php';
 require_once './Triangulo.php';
 
