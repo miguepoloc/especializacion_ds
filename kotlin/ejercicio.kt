@@ -8,7 +8,7 @@ class BiciElectrica () {
     }
 
     fun getBattery() : String {
-        return "20KM"
+        return "20V"
     }
 }
 
@@ -23,13 +23,13 @@ interface Animal {
     fun roar(): String
 }
 
-class cat: Animal {
+class Cat: Animal {
     override fun roar(): String {
         return "Miauu"
     }
 }
 
-class dog: Animal {
+class Dog: Animal {
     override fun roar(): String {
         return "Guauu"
     }
@@ -37,6 +37,7 @@ class dog: Animal {
 
 // Ejercicio 3: herencia de clases
 open class Samsung() {
+
     open fun getModel () : String {
         return "Samsung"
     }
@@ -56,6 +57,36 @@ class SamsungGalaxyS30() : Samsung() {
     }
 }
 
+// Ejercicio 4: encapsulamiento
 
+class Example(private val name: String) {
 
+    private var document: String = ""
 
+    init {
+        createDocument()
+    }
+
+    fun hablar() {
+        println("hola me llamo $name")
+    }
+
+    private fun createDocument() {
+        document = "documentID: $name-123123123"
+    }
+}
+
+fun main() {
+    // ejercicio 2:
+    println(Cat().roar())
+    println(Dog().roar())
+
+    // ejercicio 3:
+    println(SamsungGalaxyS20().getModel())
+    println(SamsungGalaxyS30().getModel())
+
+    // Ejercicio 4
+    val ejemplo = Example("Alexandra")
+    ejemplo.hablar()
+    // No se puede llamar al método privado createDocument() desde fuera de la clase en Kotlin
+}
