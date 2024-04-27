@@ -5,41 +5,47 @@
 
 data class User(
     val id: Int,
-    val name: String,
+	val name: String,
     val correo: String,
     val password: String
 )
 
-class RegisterUseCase() {
-
+class RegisterUseCase(val userRepository: UserRepository) {
+    
     operator fun invoke(user: User) {
-        if(validate(user)) {
+        if(userRepository.getUser(user)) {
             println("User already exits")
         }else {
+            // codigo que registra un usuario
             println("User registered")
         }
     }
-
-    // mala practica, tener una instancia de una base de datos en un caso de uso
-    // y ejecutar sentencias.
-
-    fun validate(user: User): Boolean {
-        val database = Database()
-        return database.query("select * from user where id = " + user.id)
-    }
-
 }
 
+class UserRepository(val dataBase : Database) {
+    fun getUser(user: User): Boolean {
+        return dataBase.getUser(user)
+    }
+}
+
+
 class Database() {
-    fun query(s: String): Boolean {
+    private fun query(s: String): Boolean {
         // codigo que va a buscar en una base de datos
         // encuentra que el usuario ya existe(retorna true)
         return true
+    }
+    
+    fun getUser(user: User): Boolean {
+        return query("select * from user where id = " + user.id)
     }
 }
 
 
 fun main() {
     var user = User(0, "pepe", "pepe@gmail.com", "pepe123")
-    println(RegisterUseCase().invoke(user))
+    val dataBase = DataBase()
+    val userRepository = UserRepository(dataBase)
+    val useCase = RegisterUseCase(userRepository)
+    println(useCase.invoke(user))
 }
