@@ -40,5 +40,4 @@ employee2 = Employee("Alice", 35, 12.0)
 
 reservation = Reservation("Guest123", employee1, employee2)
 
-# Imprimir los detalles de la reserva
 reservation.print_reservation_details()
