@@ -1,0 +1,23 @@
+from abc import ABC, abstractmethod
+
+
+class CloudProvider(ABC):
+    @abstractmethod
+    def store_file(self, name):
+        pass
+
+    @abstractmethod
+    def get_file(self, name):
+        pass
+
+    @abstractmethod
+    def create_server(self, region):
+        pass
+
+    @abstractmethod
+    def list_servers(self, region):
+        pass
+
+    @abstractmethod
+    def get_cdn_address(self):
+        pass
