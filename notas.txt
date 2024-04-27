@@ -1,0 +1,8 @@
+interfaz: Dice el qué, pero no el cómo 
+
+SOLID: (5 principios)
+-Single Responsability: Cada clase tiene una sola funcionalidad o cambia por una sola razón. 
+-Open/Closed: Estar abierto a extensiones pero no a modificaciones (Ejemplo de envios: tierra, aire, etc).
+-Liskov Substitution
+-Interface Segregation 
+-Dependency Inversion 

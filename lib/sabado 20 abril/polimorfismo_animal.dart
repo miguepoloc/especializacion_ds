@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/widgets.dart';
 
 class Animal{
@@ -21,9 +23,9 @@ class Gato extends Animal {
 }
 
 class Polimorfismo extends StatelessWidget{
-  Animal animal = Animal();
-  Animal perro = Perro();
-  Animal gato = Gato();
+  final Animal animal = Animal();
+  final Animal perro = Perro();
+  final Animal gato = Gato();
 
   Polimorfismo({super.key});
   

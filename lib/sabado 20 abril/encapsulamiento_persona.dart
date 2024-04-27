@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class Persona {
@@ -28,7 +30,7 @@ class Persona {
 class Encapsulamiento extends StatelessWidget {
   Encapsulamiento({super.key});
   
-  var persona1 = Persona("Juanita", 25);
+  final Persona persona1 = Persona("Juanita", 25);
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class Encapsulamiento extends StatelessWidget {
     persona1.setNombre("Juana");
     persona1.setEdad(26);
 
+    print("\nDespués de aplicar los setters: \n");
     print("Nombre: ${persona1.getNombre()}");
     print("Edad: ${persona1.getEdad()}");
 
