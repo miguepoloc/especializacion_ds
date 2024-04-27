@@ -1,23 +1,31 @@
 from abc import ABC, abstractmethod
 
 
-class CloudProvider(ABC):
+class Volador(ABC):
     @abstractmethod
-    def store_file(self, name):
+    def volar(self):
         pass
 
+class Nadador(ABC):
     @abstractmethod
-    def get_file(self, name):
+    def nadar(self):
         pass
 
+class Caminante(ABC):
     @abstractmethod
-    def create_server(self, region):
+    def caminar(self):
         pass
 
-    @abstractmethod
-    def list_servers(self, region):
-        pass
+class Pajaro(Volador):
+    def volar(self):
+        print("Volando alto en el cielo")
 
-    @abstractmethod
-    def get_cdn_address(self):
-        pass
+
+class Pez(Nadador):
+    def nadar(self):
+        print("Nadando en el agua")
+
+
+class Perro(Caminante):
+    def caminar(self):
+        print("Caminando en el suelo")
