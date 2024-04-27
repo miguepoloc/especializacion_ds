@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/widgets.dart';
 
-//SIN IMPLEMENTAR INTERFACE SEGREGATION
+//----------------SIN IMPLEMENTAR INTERFACE SEGREGATION-------------------
 // abstract class PersonalClinica {
 //   void atenderPaciente() {}
 //   void gestionarCitas() {}
@@ -34,7 +34,9 @@ import 'package:flutter/widgets.dart';
 //   }
 // }
 
-// IMPLEMENTANDO INTERFACE SEGREGATION
+
+
+// ---------------------------IMPLEMENTANDO INTERFACE SEGREGATION-------------------------------
 
 class AtenderPaciente {
   void atenderPaciente() {
@@ -104,7 +106,7 @@ class InterfaceSegregation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('\n AAA');
+    print('\n CON INTERFACE SEGREGATION');
     medico.atenderPaciente();
     administrativo.gestionarCitas();
     limpieza.limpiarClinica();

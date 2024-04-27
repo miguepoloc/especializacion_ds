@@ -31,6 +31,7 @@ class ClaseCargada extends StatelessWidget{
   ClaseCargada({super.key});
   @override
   Widget build(BuildContext context) {
+    print("INCORRECTA: ");
     print("CARRO 1: "+ carro1.toString());
     print("PRECIO CARRO 1: "+ carro1.calculatePrice().toString());
 
@@ -74,6 +75,7 @@ class SingleResponsability extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("CORRECTA: ");
     print("CARRO 1: " + carro1.toString());
     print("PRECIO CARRO 1: " + priceCalculator.calculatePrice(carro1).toString());
 
