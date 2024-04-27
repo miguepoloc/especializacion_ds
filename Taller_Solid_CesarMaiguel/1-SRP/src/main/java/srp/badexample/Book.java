@@ -41,7 +41,7 @@ public class Book {
 
     public void save() throws IOException {
         String bookFilePath =
-                Book.BOOK_DIRECTORY_PATH + "/" + this.title + "_" + new Date().getTime();
+                Book.BOOK_DIRECTORY_PATH + "/" + this.title + "_" + new Date().getTime(); //Especificar Ruta URL donde se Guarde el Archivo
         BufferedWriter writer = new BufferedWriter(new FileWriter(bookFilePath));
         for (Page page : pages) {
             writer.write("---- Page " + page.getNumber() + " ----");

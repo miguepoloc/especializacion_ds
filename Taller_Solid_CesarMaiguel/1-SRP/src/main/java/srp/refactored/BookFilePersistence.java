@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BookFilePersistence implements BookPersistence {
 
-    public static final String BOOK_DIRECTORY_PATH = "/tmp";
+    public static final String BOOK_DIRECTORY_PATH = "/tmp"; //Especificar Ruta URL donde se Guarde el Archivo
 
     @Override
     public void save(Book book) {
