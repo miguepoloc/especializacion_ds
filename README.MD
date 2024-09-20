@@ -1,3 +1,7 @@
+# Specialization in Software Development
+
+This repository contains the code and resources for the "Especializacion En Desarrollo de Software" from the Universidad del Magdalena.
+
 ## Clone repo
 
 ```bash
