@@ -1,32 +1,15 @@
 class Person:
     def __init__(self, first_name: str, last_name: str, identification: str, age: int, gender: str) -> None:
-        self.__first_name      = first_name
-        self.__last_name       = last_name
-        self.__identification  = identification
-        self.__age             = age
-        self.__gender          = gender
-
-    def __validate_identification(self) -> bool:
-        return len(self.__identification) > 0
-
-    @property
-    def identification(self) -> str:
-        if self.__validate_identification():
-            return self.__identification
-        else:
-            return "Invalid ID"
-
-    @identification.setter
-    def identification(self, new_id: str):
-        if len(new_id) == 4:
-            self.__identification = new_id
-        else:
-            print("New identification must have exactly 4 characters.")
+        self._first_name     = first_name
+        self._last_name      = last_name
+        self._identification = identification
+        self._age            = age
+        self._gender         = gender
 
 
 class Employee(Person):
-    __company     = 'ETA'
-    __base_salary = 1000.34
+    _compay = 'ETA'
+    _salary = 1000.34
 
     def __init__(
         self,
@@ -41,49 +24,21 @@ class Employee(Person):
         gender: str
     ) -> None:
         super().__init__(first_name, last_name, identification, age, gender)
-        self.__code           = code
-        self.__campus         = campus
-        self.__over_time      = over_time
-        self.__sales_by_month = sales_by_month
-        self.__salary         = Employee.__base_salary
+        self._code          = code
+        self._campus        = campus
+        self._over_time     = over_time
+        self._sales_by_month = sales_by_month
 
-    def __calculate_salary(self) -> float:
-        self.__salary = self.__salary + (self.__sales_by_month * 0.3) * self.__over_time
-        return self.__salary
-
-    def get_salary(self) -> float:
-        return self.__calculate_salary()
-
-    @property
-    def sales_by_month(self) -> float:
-        return self.__sales_by_month
-
-    @sales_by_month.setter
-    def sales_by_month(self, value: float) -> None:
-        if value >= 0:
-            self.__sales_by_month = value
-        else:
-            print("Sales by month cannot be negative.")
+    def calculate_salary(self) -> float:
+        self._salary = self._salary + (self._sales_by_month * 0.3) * self._over_time
 
     def __str__(self) -> str:
-        return (
-            f"Employee: {self._Person__first_name} {self._Person__last_name} - "
-            f"ID: {self.identification}, "
-            f"Salary: {self.__salary}, "
-            f"Company: {Employee.__company}"
-        )
+        return (f"Employee: {self._first_name} {self._last_name} - ID: {self._identification}, Salary: {self._salary}, Company: {self._compay}")
 
 
 def main():
-    employee = Employee('1234', 4, 34.5, 'Sede A', 'Juan', 'Perez', '1234', 25, 'M')
-
-    employee.sales_by_month = 45.0
-
-    print(f"Salary calculated: {employee.get_salary()}")
+    employee: Employee = Employee('1234', 4.3, 34.5, 'sede A', 'Juan', 'Perez', '1234', 25, 'M')
+    employee.calculate_salary()
     print(employee)
-
-    employee.identification = '5678'
-
-    print(f"Updated Employee ID: {employee.identification}")
 
 main()
