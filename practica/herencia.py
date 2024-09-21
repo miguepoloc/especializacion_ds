@@ -27,17 +27,17 @@ class Employee(Person):
         self._code          = code
         self._campus        = campus
         self._over_time     = over_time
-        self.sales_by_month = sales_by_month
+        self._sales_by_month = sales_by_month
 
     def calculate_salary(self) -> float:
-        self._salary = self._salary * self._over_time
+        self._salary = self._salary + (self._sales_by_month * 0.3) * self._over_time
 
     def __str__(self) -> str:
         return (f"Employee: {self._first_name} {self._last_name} - ID: {self._identification}, Salary: {self._salary}, Company: {self._compay}")
 
 
 def main():
-    employee = Employee('1234', 4.3, 34.5, 'sede A', 'Juan', 'Perez', '1234', 25, 'M')
+    employee: Employee = Employee('1234', 4.3, 34.5, 'sede A', 'Juan', 'Perez', '1234', 25, 'M')
     employee.calculate_salary()
     print(employee)
 
