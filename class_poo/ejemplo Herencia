@@ -1,0 +1,63 @@
+"""Herencia en un sistema de cuentas bancarias
+sistema bancario donde hay diferentes tipos de cuentas (Cuenta Corriente, Cuenta de Ahorro, etc.)
+Todas las cuentas tienen características comunes, pero también tienen características específicas según el tipo de cuenta.
+
+CuentaBancaria: Es la clase base que tiene atributos comunes como el número de cuenta y saldo, y métodos como depositar y retirar dinero.
+CuentaCorriente: Hereda de CuentaBancaria, pero tiene un atributo adicional, "línea de crédito", y sobrescribe el
+método retirar para tener en cuenta este crédito.
+CuentaAhorro: Hereda de CuentaBancaria y agrega una característica especial: tiene un método para aplicar intereses.  """
+
+class CuentaBancaria:
+    def __init__(self, numero: str, saldo: float) -> None:
+        self.numero: str = numero
+        self.saldo: float = saldo
+
+    def depositar(self, monto: float) -> None:
+        self.saldo += monto
+        print(f"Se han depositado {monto} en la cuenta {self.numero}. Saldo actual: {self.saldo}")
+
+    def retirar(self, monto: float) -> None:
+        if monto <= self.saldo:
+            self.saldo -= monto
+            print(f"Se han retirado {monto} de la cuenta {self.numero}. Saldo actual: {self.saldo}")
+        else:
+            print(f"No hay suficiente saldo para retirar {monto} de la cuenta {self.numero}.")
+
+    def obtener_info(self) -> str:
+        return f"Cuenta: {self.numero}, Saldo: {self.saldo}"
+
+
+class CuentaCorriente(CuentaBancaria):
+    def __init__(self, numero: str, saldo: float, linea_credito: float) -> None:
+        super().__init__(numero, saldo)
+        self.linea_credito: float = linea_credito
+
+    def retirar(self, monto: float) -> None:
+        if monto <= self.saldo + self.linea_credito:
+            self.saldo -= monto
+            print(f"Se han retirado {monto} de la cuenta corriente {self.numero}. Saldo actual: {self.saldo}")
+        else:
+            print(f"Fondos insuficientes incluso con la línea de crédito para retirar {monto}.")
+
+
+class CuentaAhorro(CuentaBancaria):
+    def __init__(self, numero: str, saldo: float, tasa_interes: float) -> None:
+        super().__init__(numero, saldo)
+        self.tasa_interes: float = tasa_interes
+
+    def aplicar_interes(self) -> None:
+        interes = self.saldo * self.tasa_interes
+        self.saldo += interes
+        print(f"Intereses aplicados: {interes}. Saldo actual: {self.saldo}")
+
+
+# Uso del sistema
+cuenta1 = CuentaCorriente(numero="12345", saldo=1000000, linea_credito=500000)
+cuenta2 = CuentaAhorro(numero="67890", saldo=2000000, tasa_interes=0.05)
+
+# Operaciones
+cuenta1.depositar(500000)
+cuenta1.retirar(1800000)
+
+cuenta2.aplicar_interes()
+print(cuenta2.obtener_info())

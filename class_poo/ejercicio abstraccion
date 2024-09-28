@@ -1,0 +1,35 @@
+"""Gestión de Perros
+la clase Perro es una abstracción centrada en la gestión de perros.
+Atributos simplificados: Solo se consideran el nombre, la raza y la edad del perro.
+Métodos específicos: Se incluyen métodos relevantes para la gestión (ladrar, sentarse, obtener información).
+Encapsulación: La validación de la edad está encapsulada en un método separado.
+Lógica simplificada: Se usa una lógica simple para determinar si el perro es cachorro o adulto.
+"""
+class Perro:
+    def __init__(self, nombre: str, raza: str, edad: int) -> None:
+        self.nombre: str = nombre
+        self.raza: str = raza
+        self.edad: int = edad
+
+    def ladrar(self) -> None:
+        print(f"{self.nombre} está ladrando")
+
+    def sentarse(self) -> None:
+        print(f"{self.nombre} se ha sentado")
+
+    def es_cachorro(self) -> bool:
+        return self.edad < 2
+
+    def obtener_informacion(self) -> str:
+        tipo = "cachorro" if self.es_cachorro() else "adulto"
+        return f"{self.nombre} es un {tipo} de raza {self.raza} y tiene {self.edad} años"
+
+    def __str__(self) -> str:
+        return f"{self.nombre}, {self.raza}, {self.edad} años"
+
+# Ejemplo de uso
+perro = Perro(nombre="Rex", raza="Labrador", edad=1)
+print(perro)
+perro.ladrar()
+perro.sentarse()
+print(perro.obtener_informacion())
