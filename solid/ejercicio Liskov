@@ -1,0 +1,52 @@
+""" Ejemplo correcto
+aplicación para gestionar diferentes marcas de zapatos.
+Aplicando el Principio de Sustitución de Liskov (LSP)
+
+Luiyi Jose Chica Navarro """
+
+class Zapato:
+    def __init__(self, marca: str, talla: int) -> None:
+        self.marca: str = marca
+        self.talla: int = talla
+
+    def obtener_descripcion(self) -> str:
+        return f"Marca: {self.marca}, Talla: {self.talla}"
+
+class Nike(Zapato):
+    def obtener_descripcion(self) -> str:
+        return f"Marca: {self.marca} - Nike, Talla: {self.talla}"
+
+class Adidas(Zapato):
+    def obtener_descripcion(self) -> str:
+        return f"Marca: {self.marca} - Adidas, Talla: {self.talla}"
+
+def mostrar_descripcion(zapato: Zapato) -> str:
+    return zapato.obtener_descripcion()
+
+# Ejemplo de uso
+zapato_nike = Nike(marca="Air Max", talla=42)
+zapato_adidas = Adidas(marca="Ultraboost", talla=44)
+
+print(mostrar_descripcion(zapato_nike))  # Marca: Air Max - Nike, Talla: 42
+print(mostrar_descripcion(zapato_adidas))  # Marca: Ultraboost - Adidas, Talla: 44
+
+
+""" Ejercicio incorrecto """
+
+class Puma(Zapato):
+    def obtener_descripcion(self) -> int:
+        return self.talla
+
+# Uso que viola LSP
+zapato_puma = Puma(marca="RS-X", talla=43)
+descripcion = mostrar_descripcion(zapato_puma)
+# Esto causará un error porque se espera una cadena de texto, pero se devuelve un entero
+print(descripcion.upper())
+
+""" Error Específico:
+
+Al ejecutar el código, se obtiene un error de
+tipo AttributeError que dirá algo como:
+
+AttributeError: 'int' object has no attribute 'upper'
+"""
