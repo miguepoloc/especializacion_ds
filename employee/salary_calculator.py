@@ -1,4 +1,6 @@
-class SalaryCalculator:
+from interfaces.salary_calculator_interface import ISalaryCalculator
+
+class SalaryCalculator(ISalaryCalculator):
     def calculate_salary(self, employee):
         return employee.hours_worked * employee.hourly_rate
 

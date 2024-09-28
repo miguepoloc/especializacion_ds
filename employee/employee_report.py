@@ -1,9 +1,11 @@
-class EmployeeReport:
+from interfaces.employee_report_interface import IEmployeeReport
+
+class EmployeeReport(IEmployeeReport):
     def generate_report(self, employee):
         return (
             "- Employee Report: "
-            f"Employee: {employee.name},"
-            f"Hours Worked: {employee.hours_worked},"
+            f"Employee: {employee.name}, "
+            f"Hours Worked: {employee.hours_worked}, "
             f"Hourly Rate: {employee.hourly_rate}\n"
         )
 
