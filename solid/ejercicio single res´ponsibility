@@ -1,0 +1,53 @@
+"""Ejemplo incorrecto
+aplicación para gestionar usuarios.
+Aplicando el SRP
+
+Luiyi Jose Chica navarro """
+
+class User:
+    def __init__(self, name: str, email: str) -> None:
+        self.name: str = name
+        self.email: str = email
+
+class UserPrinter:
+    def print_user(self, user: User) -> None:
+        print(f"Name: {user.name}, Email: {user.email}")
+
+class UserRepository:
+    def save_user(self, user: User) -> None:
+        # Código para guardar el usuario en una base de datos
+        pass
+
+# Crear una instancia de User
+user = User(name="Carlos Salcedo", email="carlos.salcedo@gmail.com")
+
+# Crear una instancia de UserPrinter y usarla para imprimir la información del usuario
+printer = UserPrinter()
+printer.print_user(user)
+
+# Crear una instancia de UserRepository y usarla para guardar el usuario
+repository = UserRepository()
+repository.save_user(user)
+
+""" ejemplo incorrecto """
+
+class User:
+    def __init__(self, name: str, email: str) -> None:
+        self.name: str = name
+        self.email: str = email
+
+    def print_user(self) -> None:
+        print(f"Name: {self.name}, Email: {self.email}")
+
+    def save_user(self) -> None:
+        # Código para guardar el usuario en una base de datos
+        pass
+
+# Crear una instancia de User
+user = User(name="Carlos Salcedo", email="carlos.salcedo@gmail.com")
+
+# Imprimir la información del usuario usando el método de la clase User
+user.print_user()
+
+# Guardar el usuario usando el método de la clase User
+user.save_user()
