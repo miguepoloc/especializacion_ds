@@ -1,0 +1,48 @@
+""" Ejemplo Correcto
+sistema de pago para una tienda en línea.
+Aplicando el Principio de Abierto/Cerrado (OCP)
+
+Luiyi Jose Chica Navarro """
+
+from abc import ABC, abstractmethod
+
+class PaymentProcessor(ABC):
+    @abstractmethod
+    def process_payment(self, amount: float) -> None:
+        pass
+
+class CreditCardProcessor(PaymentProcessor):
+    def process_payment(self, amount: float) -> None:
+        print(f"Procesamiento de pagos con tarjeta de crédito de ${amount}")
+
+class PayPalProcessor(PaymentProcessor):
+    def process_payment(self, amount: float) -> None:
+        print(f"Procesamiento de pagos de PayPal de ${amount}")
+
+class BankTransferProcessor(PaymentProcessor):
+    def process_payment(self, amount: float) -> None:
+        print(f"Tramitación de transferencia bancaria de ${amount}")
+
+# Ejemplo de uso
+processors = [CreditCardProcessor(), PayPalProcessor(), BankTransferProcessor()]
+for processor in processors:
+    processor.process_payment(100.00)
+
+
+""" Ejemplo incorrecto """
+
+class PaymentProcessor:
+    def process_payment(self, payment_type: str, amount: float) -> None:
+        if payment_type == "credit_card":
+            print(f"Procesamiento de pagos con tarjeta de crédito de ${amount}")
+        elif payment_type == "paypal":
+            print(f"Procesamiento de pagos de PayPal de ${amount}")
+        elif payment_type == "bank_transfer":
+            print(f"Tramitación de transferencia bancaria de ${amount}")
+        else:
+            print("Método de pago no admitido")
+
+# Ejemplo de uso
+processor = PaymentProcessor()
+processor.process_payment("credit_card", 100.00)
+processor.process_payment("paypal", 150.00)
