@@ -27,9 +27,3 @@ class Employee:
     @hourly_rate.setter
     def hourly_rate(self, value):
         self._hourly_rate = value
-
-    def calculate_salary(self):
-        return self._hours_worked * self._hourly_rate
-
-    def generate_report(self):
-        return f"Employee: {self._name}, Hours Worked: {self._hours_worked}, Hourly Rate: {self._hourly_rate}"
