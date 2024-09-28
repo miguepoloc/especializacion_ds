@@ -1,0 +1,97 @@
+""" Ejemplo correcto
+aplicación para gestionar diferentes tipos de animales en un zoológico.
+Aplicando el ISP
+
+Luiyi jose Chica Navarro """
+
+from abc import ABC, abstractmethod
+
+# Interfaces específicas
+class Walker(ABC):
+    @abstractmethod
+    def walk(self) -> None:
+        pass
+
+class Swimmer(ABC):
+    @abstractmethod
+    def swim(self) -> None:
+        pass
+
+class Flyer(ABC):
+    @abstractmethod
+    def fly(self) -> None:
+        pass
+
+# Clases que implementan las interfaces necesarias
+class Lion(Walker):
+    def walk(self) -> None:
+        print("El león está caminando.")
+
+class Dolphin(Swimmer):
+    def swim(self) -> None:
+        print("El delfín está nadando.")
+
+class Eagle(Walker, Flyer):
+    def walk(self) -> None:
+        print("El águila está caminando.")
+
+    def fly(self) -> None:
+        print("El águila está volando.")
+
+# ejemplo de uso
+lion = Lion()
+dolphin = Dolphin()
+eagle = Eagle()
+
+lion.walk()
+dolphin.swim()
+eagle.walk()
+eagle.fly()
+
+
+""" Ejercicio incorrecto """
+
+class Animal:
+    def walk(self) -> None:
+        pass
+
+    def swim(self) -> None:
+        pass
+
+    def fly(self) -> None:
+        pass
+
+class Lion(Animal):
+    def walk(self) -> None:
+        print("El león está caminando.")
+
+    def swim(self) -> None:
+        # Los leones no nadan, pero deben implementar este método
+        pass
+
+    def fly(self) -> None:
+        # Los leones no vuelan, pero deben implementar este método
+        pass
+
+class Dolphin(Animal):
+    def walk(self) -> None:
+        # Los delfines no caminan, pero deben implementar este método
+        pass
+
+    def swim(self) -> None:
+        print("El delfín está nadando.")
+
+    def fly(self) -> None:
+        # Los delfines no vuelan, pero deben implementar este método
+        pass
+
+# ejemplo de uso
+lion = Lion()
+dolphin = Dolphin()
+
+lion.walk()
+lion.swim()  # Este método no tiene sentido para un león
+lion.fly()   # Este método no tiene sentido para un león
+dolphin.swim()
+dolphin.walk()  # Este método no tiene sentido para un delfín
+
