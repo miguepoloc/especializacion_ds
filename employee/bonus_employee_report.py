@@ -1,7 +1,12 @@
+from interfaces.bonus_employee_report_interface import IBonusEmployeeReport
 from employee_report import EmployeeReport
 from bonus_salary_calculator import BonusSalaryCalculator
+from interfaces.bonus_salary_calculator_interface import IBonusSalaryCalculator
 
-class BonusEmployeeReport(EmployeeReport):
+class BonusEmployeeReport(EmployeeReport, IBonusEmployeeReport):
+    def __init__(self, salary_calculator: IBonusSalaryCalculator):
+        self.salary_calculator = salary_calculator
+
     def generate_detailed_report_with_bonus(self, employee, salary_calculator):
         if isinstance(salary_calculator, BonusSalaryCalculator):
             monthly_salary_with_bonus = salary_calculator.calculate_salary_with_bonus(employee)

@@ -1,6 +1,10 @@
 from interfaces.employee_report_interface import IEmployeeReport
+from interfaces.salary_calculator_interface import ISalaryCalculator
 
 class EmployeeReport(IEmployeeReport):
+    def __init__(self, salary_calculator: ISalaryCalculator):
+        self.__salary_calculator = salary_calculator
+
     def generate_report(self, employee):
         return (
             "- Employee Report: "
@@ -9,9 +13,9 @@ class EmployeeReport(IEmployeeReport):
             f"Hourly Rate: {employee.hourly_rate}\n"
         )
 
-    def generate_detailed_report(self, employee, salary_calculator):
-        monthly_salary = salary_calculator.calculate_salary(employee)
-        annual_salary  = salary_calculator.calculate_annual_salary(employee)
+    def generate_detailed_report(self, employee):
+        monthly_salary = self.__salary_calculator.calculate_salary(employee)
+        annual_salary  = self.__salary_calculator.calculate_annual_salary(employee)
         return (
             "- Deatil Employee Report: \n"
             f"Employee: {employee.name}\n"

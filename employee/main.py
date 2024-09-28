@@ -8,8 +8,8 @@ def main():
     employee         = Employee("Jose Prez", 40, 15)
     calculator       = SalaryCalculator()
     bonus_calculator = BonusSalaryCalculator(bonus_rate=0.1)
-    report           = EmployeeReport()
-    bonus_report     = BonusEmployeeReport()
+    report           = EmployeeReport(calculator)
+    bonus_report     = BonusEmployeeReport(calculator)
 
     employee.update_hours_worked(5)
     employee.update_hourly_rate(20)
@@ -19,7 +19,7 @@ def main():
     salary_with_bonus = bonus_calculator.calculate_salary_with_bonus(employee)
 
     employee_report            = report.generate_report(employee)
-    detailed_report            = report.generate_detailed_report(employee, calculator)
+    detailed_report            = report.generate_detailed_report(employee)
     detailed_report_with_bonus = bonus_report.generate_detailed_report_with_bonus(employee, bonus_calculator)
 
     print(f"Salary with Bonus: {salary_with_bonus}")
