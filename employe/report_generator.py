@@ -1,7 +1,5 @@
-from employee import Employee
-
 class ReportGenerator:
-	def generate_report(self, employee, calculated_salary):
+	def generate_report(self, employee, calculated_salary) -> str:
 		return (
 			"- Employee Report:\n"
 			f"Employee: {employee.name},\n"
@@ -10,7 +8,7 @@ class ReportGenerator:
 			f"Total Salary: {calculated_salary}\n"
 		)
 
-	def generate_annual_report(self, employee, calculated_salary):
+	def generate_annual_report(self, employee, calculated_salary) -> str:
 		return (
 			"- Employee Annual Report:\n"
 			f"Employee: {employee.name},\n"
@@ -19,7 +17,7 @@ class ReportGenerator:
 			f"Total Salary: {calculated_salary}\n"
 		)
 
-	def generate_bonus_report(self, employee, calculated_salary):
+	def generate_bonus_report(self, employee, calculated_salary) -> str:
 		return (
 			"- Employee Bonus Report:\n"
 			f"Employee: {employee.name},\n"
