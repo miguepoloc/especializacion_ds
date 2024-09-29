@@ -1,4 +1,6 @@
-class ReportGenerator:
+from report_interface import IReport
+
+class ReportGenerator(IReport):
 	def generate_report(self, employee, calculated_salary) -> str:
 		return (
 			"- Employee Report:\n"
