@@ -1,8 +1,8 @@
 from employee import Employee
 
 class ReportGenerator:
-    def generate_report(self, employee, calculated_salary):
-        return (
+	def generate_report(self, employee, calculated_salary):
+		return (
 			"- Employee Report:\n"
 			f"Employee: {employee.name},\n"
 			f"Hours Worked: {employee.hours_worked},\n"
