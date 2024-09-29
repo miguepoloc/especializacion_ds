@@ -7,9 +7,13 @@ def main():
     salary_calculator = SalaryCalculator()
     report_generator = ReportGenerator()
 
-    calculated_salary = salary_calculator.calculate_salary(employee)
+    calculated_salary_normal = salary_calculator.calculate_salary(employee)
+    calculated_salary_annual = salary_calculator.calculate_salary(employee, "annual")
+    calculated_salary_bonus = salary_calculator.calculate_salary(employee, "bonus")
 
-    print(report_generator.generate_report(employee=employee))
-    print(f"Calculated Salary: {calculated_salary}")
+
+    print(report_generator.generate_report(employee=employee, calculated_type="normal", calculated_salary=calculated_salary_normal))
+    print(report_generator.generate_report(employee=employee , calculated_type="annual", calculated_salary=calculated_salary_annual))
+    print(report_generator.generate_report(employee=employee, calculated_type="bonnus", calculated_salary=calculated_salary_bonus))
 
 main()
