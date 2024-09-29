@@ -1,11 +1,9 @@
 class SalaryCalculator:
-    def calculate_salary(self, employee, calculated_type="normal"):
-        calculation_switch = {
-            "normal": lambda: employee.hours_worked * employee.hourly_rate,
-            "annual": lambda: employee.hours_worked * employee.hourly_rate * 30,
-            "bonus": lambda: employee.hours_worked * employee.hourly_rate * (1 + employee.bonus_rate)
-        }
+    def calculate_salary(self, employee):
+		return employee.hours_worked * employee.hourly_rate
 
-        calculate_function = calculation_switch.get(calculated_type, calculation_switch["normal"])
+	def calculate_annual_salary(self, employee):
+		return self.calculate_salary(employee) * 12
 
-        return calculate_function()
+	def calculate_bonus(self, employee):
+		return self.calculate_salary(employee) * employee.bonus
