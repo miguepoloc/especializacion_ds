@@ -8,4 +8,4 @@ class SalaryCalculator(GenericSalaryCalculator):
 		return self.calculate_salary(employee) * 12
 
 	def calculate_bonus(self, employee) -> float:
-		return str(self.calculate_salary(employee) * (1 + employee.bonus_rate))
+		return self.calculate_salary(employee) * (1 + employee.bonus_rate)
