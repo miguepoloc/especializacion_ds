@@ -1,0 +1,35 @@
+""" patron Iterator
+iterator de fechas:
+la clase DateRangeIterator recorre un rango de fechas, devolviendo
+una fecha cada vez que se llame a next().
+La clase debería recibir dos fechas de inicio y fin, y recorrer
+todas las fechas entre ellas.
+
+Luiyi Jose Chica Navarro """
+
+
+from datetime import datetime, timedelta
+
+class DateRangeIterator:
+    def __init__(self, start_date, end_date):
+        self.current_date = start_date
+        self.end_date = end_date
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current_date > self.end_date:
+            raise StopIteration
+        current = self.current_date
+        self.current_date += timedelta(days=1)
+        return current
+
+# Prueba del iterador
+start_date = datetime(2024, 10, 1)
+end_date = datetime(2024, 10, 12)
+
+date_iterator = DateRangeIterator(start_date, end_date)
+
+for date in date_iterator:
+    print(date.strftime('%d-%m-%Y'))
