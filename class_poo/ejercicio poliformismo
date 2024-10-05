@@ -1,0 +1,40 @@
+""" Ejemplo polimorfismo
+Luiyi José Chica Navarro
+
+En este ejemplo, diferentes frutas tienen el mismo método (comer),
+pero su implementación varía según el tipo de fruta:
+"""
+
+from abc import ABC, abstractmethod
+
+# Clase abstracta Fruta que define un método común "comer"
+class Fruta(ABC):
+    @abstractmethod
+    def comer(self) -> str:
+        pass
+
+# Implementaciones concretas de Fruta
+class Manzana(Fruta):
+    def comer(self) -> str:
+        return "Comes una manzana crujiente."
+
+class Naranja(Fruta):
+    def comer(self) -> str:
+        return "Comes una naranja jugosa."
+
+class Platano(Fruta):
+    def comer(self) -> str:
+        return "Te comes un plátano suave y dulce."
+
+# Función polimórfica que recibe cualquier objeto de tipo Fruta
+def disfrutar_fruta(fruta: Fruta) -> None:
+    print(fruta.comer())
+
+# Crear objetos de diferentes clases de Fruta
+manzana = Manzana()
+naranja = Naranja()
+platano = Platano()
+
+# Llamar a la función polimórfica con diferentes frutas
+for fruta in [manzana, naranja, platano]:
+    disfrutar_fruta(fruta)

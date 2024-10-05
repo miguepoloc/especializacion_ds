@@ -1,0 +1,43 @@
+"""  Este ejemplo se enfoca en el uso de una clase que encapsula
+los datos de un objeto Persona, y permite interactuar con ellos a través de métodos:
+
+"""
+
+class Persona:
+    def __init__(self, nombre: str, edad: int):
+        self.__nombre = nombre  # Atributo privado
+        self.__edad = edad      # Atributo privado
+
+    # Método público para obtener el nombre
+    def obtener_nombre(self):
+        return self.__nombre
+
+    # Método público para establecer el nombre
+    def cambiar_nombre(self, nuevo_nombre: str):
+        if nuevo_nombre:
+            self.__nombre = nuevo_nombre
+
+    # Método público para obtener la edad
+    def obtener_edad(self):
+        return self.__edad
+
+    # Método público para modificar la edad
+    def cambiar_edad(self, nueva_edad: int):
+        if nueva_edad > 0:
+            self.__edad = nueva_edad
+
+# Creación del objeto Persona
+persona = Persona("Ana", 30)
+
+# Acceder a los datos mediante métodos públicos
+print(f"Nombre: {persona.obtener_nombre()}")
+print(f"Edad: {persona.obtener_edad()}")
+
+# Cambiar los datos mediante métodos públicos
+persona.cambiar_nombre("María")
+persona.cambiar_edad(31)
+
+# Acceder de nuevo a los datos actualizados
+print(f"Nuevo nombre: {persona.obtener_nombre()}")
+print(f"Nueva edad: {persona.obtener_edad()}")
+

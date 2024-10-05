@@ -1,0 +1,61 @@
+""" Ejemplo correcto
+aplicación para gestionar diferentes tipos de motores en vehículos.
+Aplicando el DIP
+
+Luiyi Jose Chica Navarro  """
+
+from abc import ABC, abstractmethod
+
+# Definimos una abstracción para los motores
+class Engine(ABC):
+    @abstractmethod
+    def start(self) -> None:
+        pass
+
+# Implementaciones concretas de la abstracción
+class GasolineEngine(Engine):
+    def start(self) -> None:
+        print("El motor de gasolina está arrancando.")
+
+class ElectricEngine(Engine):
+    def start(self) -> None:
+        print("El motor eléctrico está arrancando.")
+
+# La clase Vehicle depende de la abstracción Engine
+class Vehicle:
+    def __init__(self, engine: Engine) -> None:
+        self.engine: Engine = engine
+
+    def start_engine(self) -> None:
+        self.engine.start()
+
+# Ejemplo de uso
+gasoline_engine = GasolineEngine()
+electric_engine = ElectricEngine()
+
+car = Vehicle(gasoline_engine)
+motorcycle = Vehicle(electric_engine)
+
+car.start_engine()  # Salida: El motor de gasolina está arrancando.
+motorcycle.start_engine()  # Salida: El motor eléctrico está arrancando.
+
+
+""" Ejemplo incorrecto """
+
+# Implementación concreta sin abstracción
+class GasolineEngine:
+    def start(self) -> None:
+        print("El motor de gasolina está arrancando.")
+
+# La clase Vehicle depende directamente de una implementación concreta
+class Vehicle:
+    def __init__(self) -> None:
+        self.engine = GasolineEngine()
+
+    def start_engine(self) -> None:
+        self.engine.start()
+
+# Ejemplo de uso
+car = Vehicle()
+car.start_engine()  # Salida: El motor de gasolina está arrancando.
+
