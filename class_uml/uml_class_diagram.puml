@@ -1,0 +1,21 @@
+'''
+@startuml
+
+class Course {
+  +get_knowledge(): str
+}
+
+class Student {
+  +remember(knowledge: str): void
+}
+
+class Professor {
+  -student: Student
+  +teach(course: Course): void
+}
+
+Professor --> Student : asociación
+Professor ..> Course : dependencia
+
+@enduml
+'''
