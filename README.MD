@@ -53,6 +53,9 @@ Cada notebook sigue una estructura didáctica que incluye:
     ```bash
     python3 -m venv venv
     source venv/bin/activate
+
+    python -m venv venv
+    venv/Scripts/Activate
     ```
 
 3. Instala las dependencias:
