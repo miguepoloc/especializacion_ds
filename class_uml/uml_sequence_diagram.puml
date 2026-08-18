@@ -1,4 +1,3 @@
-'''
 @startuml
 actor Professor
 participant Student
@@ -7,4 +6,3 @@ participant Course
 Professor -> Course: get_knowledge()
 Professor -> Student: remember(knowledge)
 @enduml
-'''

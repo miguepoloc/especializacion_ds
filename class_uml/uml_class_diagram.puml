@@ -1,4 +1,3 @@
-'''
 @startuml
 
 class Course {
@@ -18,4 +17,3 @@ Professor --> Student : asociación
 Professor ..> Course : dependencia
 
 @enduml
-'''
