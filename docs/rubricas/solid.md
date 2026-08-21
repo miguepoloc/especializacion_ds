@@ -1,6 +1,6 @@
 # Rúbrica — Actividad 2: Principios SOLID (50 pts)
 
-Enunciado de referencia: *"Realizar scripts en el lenguaje de programación de preferencia donde se evidencie el uso de los principios SOLID."*
+Enunciado oficial de la actividad: [`docs/actividades/actividad_2_solid.md`](../actividades/actividad_2_solid.md) — completar los 5 notebooks de `solid/ejercicios/`.
 
 Corresponde 1:1 con los 5 notebooks de `solid/`: `single_responsibility.ipynb`, `open_closed.ipynb`, `liskov.ipynb`, `interface_segregation.ipynb`, `dependency_inversion.ipynb`.
 

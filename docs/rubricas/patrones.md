@@ -1,8 +1,6 @@
 # Rúbrica — Actividad 3: Patrones de Diseño (50 pts)
 
-Enunciado de referencia: *"Realizar scripts en el lenguaje de programación de preferencia donde se evidencie el uso de los Patrones de Diseño."*
-
-> **Nota de diseño (revisar/confirmar):** el enunciado histórico no especifica cuántos patrones ni de qué categorías se exigen en esta actividad — a diferencia del proyecto integrador (Actividad 4), que sí exige "mínimo 5". Para que esta rúbrica sea evaluable, se asume que el estudiante debe aplicar **al menos 3 patrones distintos, uno de cada categoría GoF** (creacional, estructural, de comportamiento) — esto obliga a explorar las tres familias en vez de repetir siempre Strategy/Singleton/Factory. Si tu criterio real es otro (ej. un número fijo, o patrones libres sin exigir categoría), ajusta esta rúbrica antes de usarla — el resto del documento asume esta regla de 3.
+Enunciado oficial de la actividad: [`docs/actividades/actividad_3_patrones.md`](../actividades/actividad_3_patrones.md) — el estudiante aplica **3 patrones, uno de cada categoría GoF** (creacional, estructural, de comportamiento), elegidos libremente entre los 23 vistos en clase.
 
 ## Resumen de dimensiones
 

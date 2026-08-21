@@ -1,6 +1,6 @@
 # Rúbrica — Actividad 1: Programación Orientada a Objetos (50 pts)
 
-Enunciado de referencia: *"Realizar scripts en el lenguaje de programación de preferencia donde se evidencie el uso de los principios de la Programación Orientada a Objetos."*
+Enunciado oficial de la actividad: [`docs/actividades/actividad_1_poo.md`](../actividades/actividad_1_poo.md) — completar los 4 notebooks de `class_poo/ejercicios/`.
 
 Corresponde a los 4 pilares cubiertos en `class_poo/`: `abstraccion.ipynb`, `encapsulamiento.ipynb`, `herencia.ipynb`, `polimorfismo.ipynb` (más `interfaz.ipynb` y `definiendo_clases.ipynb` como apoyo conceptual).
 
