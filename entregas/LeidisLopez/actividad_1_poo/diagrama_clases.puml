@@ -1,0 +1,67 @@
+@startuml diagrama_clases_bancaria
+
+!define ABSTRACT abstract
+
+ABSTRACT class Cuenta {
+    + numero_cuenta: str
+    + titular: str
+    - _saldo: float
+    + fecha_creacion: datetime
+    + movimientos: List[dict]
+
+    + __init__(numero_cuenta, titular, saldo_inicial=0)
+    + obtener_saldo(): float
+    + depositar(cantidad: float): bool
+    + retirar(cantidad: float): bool
+    # procesar_comisiones(): void <<abstract>>
+}
+
+
+class CuentaAhorros {
+    + tasa_interes: float
+    + __init__(numero_cuenta, titular, saldo_inicial=0, tasa_interes=0.05)
+    + procesar_comisiones(): void
+}
+
+class CuentaCorriente {
+    + comision_mensual: float
+
+    + __init__(numero_cuenta, titular, saldo_inicial=0, comision_mensual=10)
+    + procesar_comisiones(): void
+}
+
+class CuentaInfantil {
+    + tutor: str
+    + __init__(numero_cuenta, titular, tutor, saldo_inicial=0)
+    + procesar_comisiones(): void
+}
+
+class CuentaEmpresa {
+    + comision_transaccional: float
+    + __init__(numero_cuenta, titular, saldo_inicial=0, comision_transaccional=0.01)
+    + procesar_comisiones(): void
+}
+
+
+class Cliente {
+    + nombre: str
+    + cedula: str
+    - _cuentas: List[Cuenta]
+
+    + __init__(nombre: str, cedula: str)
+    + agregar_cuenta(cuenta: Cuenta): void
+    + procesar_todas_comisiones(): void
+}
+
+
+Cuenta <|-- CuentaAhorros : hereda
+Cuenta <|-- CuentaCorriente : hereda
+Cuenta <|-- CuentaInfantil : hereda
+Cuenta <|-- CuentaEmpresa : hereda
+
+
+Cliente "1" o-- "0..*" Cuenta : contiene
+
+
+
+@enduml
