@@ -31,7 +31,7 @@ Entregas por debajo de estos mínimos se evalúan igual con la rúbrica, pero no
 3 notebooks (uno por patrón elegido), dentro de tu carpeta:
 
 ```
-entregas/<tu_codigo_estudiante>/actividad_3_patrones/
+entregas/<tu_nombre_estudiante>/actividad_3_patrones/
   <patron_creacional_elegido>.ipynb
   <patron_estructural_elegido>.ipynb
   <patron_comportamiento_elegido>.ipynb
@@ -41,7 +41,7 @@ Nombra cada archivo con el nombre del patrón en minúsculas (ej. `builder.ipynb
 
 ## Cómo se entrega
 
-1. Rama propia: `entrega/<tu_codigo>-actividad3-patrones`.
+1. Rama propia: `entrega/<tu_nombre>-actividad3-patrones`.
 2. Crea tu carpeta en `entregas/` con los 3 notebooks.
 3. Pull Request con título `Actividad 3 - Patrones - <Tu Nombre>`.
 4. Trabajo **individual**.

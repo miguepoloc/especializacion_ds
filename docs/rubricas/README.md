@@ -18,7 +18,7 @@ Todas comparten el mismo formato: por cada dimensión, 4 niveles de desempeño (
 ## Flujo de evaluación con IA (propuesta, no automática)
 
 1. Reúne el código del estudiante (PR de GitHub) y la rúbrica correspondiente.
-2. Usa un prompt como el siguiente (ajusta `{{RUBRICA}}` y `{{CODIGO}}`):
+2. Usa un prompt como el siguiente (ajusta `{{RUBRICA}}` y `{{nombre}}`):
 
    > Eres un evaluador docente. Aplica ESTRICTAMENTE la siguiente rúbrica al código del estudiante. Para cada dimensión, cita el archivo y la línea concreta que sustenta el nivel asignado — si no hay evidencia en el código para un nivel alto, no lo asignes aunque el código "se vea bien" en general. Si un archivo no ejecuta o falta, la(s) dimensión(es) afectada(s) van en Insuficiente. Devuelve: por cada dimensión, nivel asignado + puntos + justificación citando archivo:línea; y al final, el puntaje total sumado.
    >
@@ -26,7 +26,7 @@ Todas comparten el mismo formato: por cada dimensión, 4 niveles de desempeño (
    > {{RUBRICA}}
    >
    > CÓDIGO DEL ESTUDIANTE:
-   > {{CODIGO}}
+   > {{nombre}}
 
 3. La IA devuelve una propuesta de calificación con evidencia citada — **el docente revisa y ajusta antes de publicar la nota**, no se publica el resultado de la IA sin revisión (ver decisión "IA propone, tú confirmas").
 4. Guarda la justificación de la IA como respaldo ante posibles reclamos de nota — es más defendible que una nota sin desglose.
