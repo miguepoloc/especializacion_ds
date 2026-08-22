@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class TermostatoIndustrial {
+    - __id_dispositivo: str
+    - __temperatura_setpoint: float
+    - __temperatura_limite_min: float
+    - __temperatura_limite_max: float
+    - __esta_bloqueado: bool
+    - __clave: str
+    - __historial: list[str]
+    --
+    + __init__(id_dispositivo: str, setpoint_inicial: float, limite_min: float, limite_max: float)
+    + obtener_id(): str
+    + obtener_setpoint(): float
+    + configurar_setpoint(nuevo_setpoint: float): bool
+    + esta_bloqueado(): bool
+    + bloquear_panel(clave: str): bool
+    + desbloquear_panel(clave: str): bool
+    + obtener_historial(): list[str]
+    + __str__(): str
+}
+@enduml

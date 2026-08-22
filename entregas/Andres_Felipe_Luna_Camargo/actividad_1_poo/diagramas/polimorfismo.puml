@@ -1,0 +1,43 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class SensorAlarma {
+    # id_sensor: str
+    # ubicacion: str
+    # valor_actual: float
+    --
+    + __init__(id_sensor: str, ubicacion: str, valor_inicial: float)
+    + {abstract} evaluar_condicion(): str
+    + {abstract} activar_protocolo_respuesta(): str
+    + actualizar_lectura(nuevo_valor: float): None
+    + __str__(): str
+}
+
+class SensorTemperaturaCritica {
+    - _temp_umbral_max: float
+    --
+    + __init__(id_sensor: str, ubicacion: str, temp_inicial: float, temp_umbral_max: float)
+    + evaluar_condicion(): str
+    + activar_protocolo_respuesta(): str
+}
+
+class SensorPresionRefrigerante {
+    - _presion_minima_segura_psi: float
+    --
+    + __init__(id_sensor: str, ubicacion: str, presion_inicial: float, presion_min_psi: float)
+    + evaluar_condicion(): str
+    + activar_protocolo_respuesta(): str
+}
+
+class SensorFugaGasAmoniaco {
+    - _ppm_evacuacion: float
+    --
+    + __init__(id_sensor: str, ubicacion: str, ppm_inicial: float, ppm_evacuacion: float)
+    + evaluar_condicion(): str
+    + activar_protocolo_respuesta(): str
+}
+
+SensorAlarma <|-- SensorTemperaturaCritica
+SensorAlarma <|-- SensorPresionRefrigerante
+SensorAlarma <|-- SensorFugaGasAmoniaco
+@enduml

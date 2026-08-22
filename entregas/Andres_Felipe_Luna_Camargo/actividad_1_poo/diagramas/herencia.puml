@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class EquipoRefrigeracion {
+    # id_equipo: str
+    # marca: str
+    # potencia_hp: float
+    # refrigerante: str
+    # horas_operacion: float
+    --
+    + __init__(id_equipo: str, marca: str, potencia_hp: float, refrigerante: str, horas_iniciales: float)
+    + registrar_horas(horas: float): None
+    + estimar_consumo_electrico_kwh(horas_calculo: float): float
+    + __str__(): str
+}
+
+class CompresorTornillo {
+    - _presion_descarga_psi: float
+    - _capacidad_modulacion_pct: float
+    --
+    + __init__(id_equipo: str, marca: str, potencia_hp: float, refrigerante: str, presion_descarga: float)
+    + ajustar_modulacion(nuevo_porcentaje: float): bool
+    + estimar_consumo_electrico_kwh(horas_calculo: float): float
+    + __str__(): str
+}
+
+class EvaporadorForzado {
+    - _numero_ventiladores: int
+    - _modo_deshielo_activo: bool
+    - _tiempo_deshielo_minutos: int
+    --
+    + __init__(id_equipo: str, marca: str, potencia_hp: float, refrigerante: str, num_ventiladores: int, tiempo_deshielo: int)
+    + iniciar_deshielo(): str
+    + finalizar_deshielo(): str
+    + __str__(): str
+}
+
+EquipoRefrigeracion <|-- CompresorTornillo
+EquipoRefrigeracion <|-- EvaporadorForzado
+@enduml
