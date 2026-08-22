@@ -32,7 +32,7 @@ Diagrama UML: **no es obligatorio** en esta actividad (a diferencia de POO y Pat
 Un notebook (o uno por principio, como prefieras) con los 5 contrastes "viola/cumple", ejecutados, dentro de tu carpeta:
 
 ```
-entregas/<tu_codigo_estudiante>/actividad_2_solid/
+entregas/<tu_nombre_estudiante>/actividad_2_solid/
   solid.ipynb   # o 5 notebooks, uno por principio
 ```
 
@@ -40,7 +40,7 @@ entregas/<tu_codigo_estudiante>/actividad_2_solid/
 
 ## Cómo se entrega
 
-1. Rama propia: `entrega/<tu_codigo>-actividad2-solid`.
+1. Rama propia: `entrega/<tu_nombre>-actividad2-solid`.
 2. Crea tu carpeta en `entregas/` con tu(s) notebook(s).
 3. Pull Request con título `Actividad 2 - SOLID - <Tu Nombre>`.
 4. Trabajo **individual**.
