@@ -41,4 +41,28 @@ class Carro {
 
 Carro *-- Motor : composición\n(el motor muere con el carro)
 
+class Persona {
+  -nombre: str
+  +saludar(): str
+}
+
+class Estudiante {
+  +remember(knowledge: str): void
+}
+
+class Profesor {
+  -estudiante: Estudiante
+  +teach(course: Course): void
+}
+
+Persona <|-- Estudiante : herencia
+Persona <|-- Profesor : herencia
+
+interface Notificable {
+  +notificar(mensaje: str): void
+}
+
+Notificable <|.. Estudiante : realización
+Notificable <|.. Profesor : realización
+
 @enduml

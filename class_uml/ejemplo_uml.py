@@ -102,6 +102,63 @@ class Carro:
         self.motor = None
 
 
+# ----------------------------------------------------------------------
+# HERENCIA (generalización): Estudiante y Profesor SON-UN Persona. Ambas
+# clases heredan los atributos y métodos comunes definidos en Persona y
+# solo agregan/sobrescriben lo que las distingue.
+# Se dibuja con una flecha continua y punta triangular vacía (--|>), que
+# siempre apunta de la subclase hacia la superclase.
+# ----------------------------------------------------------------------
+class Persona:
+    def __init__(self, nombre: str) -> None:
+        self.nombre = nombre
+
+    def saludar(self) -> str:
+        return f"Hola, soy {self.nombre}"
+
+
+class Estudiante(Persona):
+    def remember(self, knowledge: str) -> None:
+        print(f"{self.nombre} ha recordado {knowledge}")
+
+
+class Profesor(Persona):
+    def __init__(self, nombre: str, estudiante: Estudiante) -> None:
+        # super().__init__() reutiliza el constructor de Persona en vez de
+        # repetir 'self.nombre = nombre' aquí.
+        super().__init__(nombre)
+        self.estudiante = estudiante
+
+    def teach(self, course: Course) -> None:
+        self.estudiante.remember(course.get_knowledge())
+
+
+# ----------------------------------------------------------------------
+# REALIZACIÓN (implementación de interfaz): Estudiante y Profesor CUMPLEN
+# el contrato de Notificable, pero cada una lo implementa a su manera.
+# A diferencia de la herencia, aquí no se comparte código, solo la firma
+# del método — por eso Notificable es una clase abstracta (ABC), no una
+# clase con lógica propia.
+# Se dibuja con una flecha punteada y punta triangular vacía (..|>).
+# ----------------------------------------------------------------------
+from abc import ABC, abstractmethod
+
+
+class Notificable(ABC):
+    @abstractmethod
+    def notificar(self, mensaje: str) -> None: ...
+
+
+class EstudianteNotificable(Estudiante, Notificable):
+    def notificar(self, mensaje: str) -> None:
+        print(f"[Estudiante {self.nombre}] {mensaje}")
+
+
+class ProfesorNotificable(Profesor, Notificable):
+    def notificar(self, mensaje: str) -> None:
+        print(f"[Profesor {self.nombre}] {mensaje}")
+
+
 if __name__ == "__main__":
     equipo = Equipo("Tiburones")
     jugador1 = Jugador("Ana")
@@ -116,3 +173,11 @@ if __name__ == "__main__":
     print(f"{carro.modelo} tiene un motor de {carro.motor.caballos_de_fuerza} hp")
     carro.destruir()
     print(f"Carro destruido. ¿Sigue el motor accesible?: {carro.motor}")
+
+    ana_estudiante = EstudianteNotificable("Ana")
+    juan_profesor = ProfesorNotificable("Juan", ana_estudiante)
+    print(ana_estudiante.saludar())  # heredado de Persona
+    print(juan_profesor.saludar())  # heredado de Persona
+    print("¿Estudiante es-un Persona?", isinstance(ana_estudiante, Persona))
+    ana_estudiante.notificar("Tu tarea vence mañana")  # implementado de Notificable
+    juan_profesor.notificar("Tienes una reunión a las 3pm")  # implementado de Notificable
