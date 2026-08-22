@@ -1,0 +1,31 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CuartoFrioAlmacen {
+    + id_cuarto: str
+    + capacidad_pallets: int
+    + pallets_ocupados: int
+    + tarifa_diaria_pallet: float
+    --
+    + __init__(id_cuarto: str, capacidad_pallets: int, tarifa_diaria_pallet: float)
+    + ingresar_carga(pallets: int): bool
+    + retirar_carga(pallets: int): bool
+    + calcular_facturacion_diaria(): float
+    + obtener_porcentaje_ocupacion(): float
+    + __str__(): str
+}
+
+class CuartoFrioMonitoreo {
+    + id_cuarto: str
+    + temperatura_sensor_c: float
+    + presion_succion_psi: float
+    + horas_acumuladas_compresor: float
+    + temperatura_critica_c: float
+    --
+    + __init__(id_cuarto: str, temp_critica: float, horas_iniciales: float)
+    + registrar_telemetria(temp_c: float, presion_psi: float, horas_operacion: float): None
+    + evaluar_estado_termico(): str
+    + requiere_mantenimiento_preventivo(): bool
+    + __str__(): str
+}
+@enduml
