@@ -16,4 +16,29 @@ class Professor {
 Professor --> Student : asociación
 Professor ..> Course : dependencia
 
+class Jugador {
+  -nombre: str
+}
+
+class Equipo {
+  -nombre: str
+  -jugadores: list~Jugador~
+  +fichar(jugador: Jugador): void
+  +disolver(): void
+}
+
+Equipo o-- Jugador : agregación\n(el jugador sobrevive al equipo)
+
+class Motor {
+  -caballos_de_fuerza: int
+}
+
+class Carro {
+  -modelo: str
+  -motor: Motor
+  +destruir(): void
+}
+
+Carro *-- Motor : composición\n(el motor muere con el carro)
+
 @enduml
