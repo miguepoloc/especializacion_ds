@@ -1,0 +1,42 @@
+class tarjetatransporte:
+    def __init__(self, titular: str, saldo_inicial: float) -> None:
+        self.__titular: str = titular
+        self.__saldo: float = saldo_inicial
+
+    def depositar(self, cantidad: float) -> bool:
+        if cantidad > 1800:
+            self.__saldo += cantidad
+            return True
+        return False
+
+    def pagar(self, cantidad: float) -> bool:
+        if 1800 < cantidad <= self.__saldo:
+            self.__saldo -= cantidad
+            return True
+        return False
+
+    def obtener_saldo(self) -> float:
+        return self.__saldo
+
+    def obtener_titular(self) -> str:
+        return self.__titular
+
+
+       tarjeta = tarjetatransporte(titular="Daniel Neuta", saldo_inicial=2000)
+print(f"Saldo en la tarjeta: {ctarjeta.obtener_saldo()}")
+
+tarjeta.depositar(3000)
+print(f"Saldo después del depósito: {tarjeta.obtener_saldo()}")
+
+tarjeta.pagar(1800)
+print(f"Saldo después del pago: {tarjeta.obtener_saldo()}")
+
+
+print(tarjeta._trajetatransporte__saldo)
+print(tarjeta._tarjetatransporte__titular)
+
+
+
+
+https://editor.plantuml.com/uml/TOun2iCm34Ltdq9ZGka5F8Ns84MnLJ2eLf7agVJkTO8xPCWV_uF7MynHlRqu94Opk3UgZZUi2RKWV0BqNS6BDqQDOAxZCkGi4PuiwFjrWKnliTA5KyBg9MEU8wmYFBYI5psbiZfLqiSkdkQZ-Wz7o8Qtb6zOgEQU_mC0
+
