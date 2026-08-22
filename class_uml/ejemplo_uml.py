@@ -50,3 +50,69 @@ Esto también es una dependencia.
 En la clase Professor, el campo student siempre está accesible para cualquier método de Professor.
 Por lo tanto, la clase Student no es sólo una dependencia, sino también una asociación.
 """
+
+
+# ----------------------------------------------------------------------
+# AGREGACIÓN: Equipo "tiene" Jugadores, pero un Jugador existe
+# independientemente del Equipo (relación todo-parte débil).
+# Se dibuja con un rombo VACÍO (◇) del lado del "todo" (Equipo).
+# ----------------------------------------------------------------------
+class Jugador:
+    def __init__(self, nombre: str) -> None:
+        self.nombre = nombre
+
+
+class Equipo:
+    def __init__(self, nombre: str) -> None:
+        self.nombre = nombre
+        # 'jugadores' es una lista de instancias de Jugador que YA EXISTÍAN
+        # antes de ser fichadas por este equipo. Son la "parte" en la
+        # relación todo-parte, pero no dependen del "todo" para existir.
+        self.jugadores: list[Jugador] = []
+
+    def fichar(self, jugador: Jugador) -> None:
+        self.jugadores.append(jugador)
+
+    def disolver(self) -> None:
+        # Al disolver el equipo, los jugadores NO desaparecen: solo dejan
+        # de estar en esta lista. Pueden fichar por otro equipo.
+        self.jugadores = []
+
+
+# ----------------------------------------------------------------------
+# COMPOSICIÓN: Carro "tiene" un Motor, y ese Motor específico fue creado
+# junto con ese Carro y no tiene sentido fuera de él (relación todo-parte
+# fuerte). Se dibuja con un rombo LLENO (◆) del lado del "todo" (Carro).
+# ----------------------------------------------------------------------
+class Motor:
+    def __init__(self, caballos_de_fuerza: int) -> None:
+        self.caballos_de_fuerza = caballos_de_fuerza
+
+
+class Carro:
+    def __init__(self, modelo: str, caballos_de_fuerza: int) -> None:
+        self.modelo = modelo
+        # El Motor se crea AQUÍ DENTRO, como parte del propio Carro. Nadie
+        # más tiene una referencia a esta instancia de Motor.
+        self.motor = Motor(caballos_de_fuerza)
+
+    def destruir(self) -> None:
+        # Al destruir el carro, ESTE motor específico deja de existir con
+        # él: nadie más lo estaba usando.
+        self.motor = None
+
+
+if __name__ == "__main__":
+    equipo = Equipo("Tiburones")
+    jugador1 = Jugador("Ana")
+    jugador2 = Jugador("Luis")
+    equipo.fichar(jugador1)
+    equipo.fichar(jugador2)
+    print(f"{equipo.nombre} tiene a {[j.nombre for j in equipo.jugadores]}")
+    equipo.disolver()
+    print(f"Equipo disuelto. Ana sigue existiendo: {jugador1.nombre}")
+
+    carro = Carro("Corolla", 140)
+    print(f"{carro.modelo} tiene un motor de {carro.motor.caballos_de_fuerza} hp")
+    carro.destruir()
+    print(f"Carro destruido. ¿Sigue el motor accesible?: {carro.motor}")

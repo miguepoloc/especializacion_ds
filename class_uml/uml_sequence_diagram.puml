@@ -1,8 +1,21 @@
 @startuml
-actor Professor
-participant Student
-participant Course
+actor ": Cliente" as Cliente
+participant "professor: Professor" as Professor
+participant "course: Course" as Course
+participant "student: Student" as Student
+
+Cliente -> Professor: teach(course)
+activate Professor
 
 Professor -> Course: get_knowledge()
+activate Course
+Course --> Professor: "knowledge"
+deactivate Course
+
 Professor -> Student: remember(knowledge)
+activate Student
+Student --> Professor: (void)
+deactivate Student
+
+deactivate Professor
 @enduml
