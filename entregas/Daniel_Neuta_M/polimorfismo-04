@@ -1,0 +1,39 @@
+from abc import ABC, abstractmethod
+
+class comida(ABC):
+    def __init__(self, tipo: str, tamaño: str) -> None:
+        self.tipo: str = tipo
+        self.tamaño: str = tamaño
+
+    @abstractmethod
+    def entregar(self) -> str:
+        pass
+
+    def describir(self) -> str:
+        return f"{self.tipo} {self.tamaño}"
+
+class local1:
+    def entregar(self) -> str:
+        return "la comida llegara en 15 min"
+
+class local2:
+    def entregar(self) -> str:
+        return "la comida llegara en 20 min"
+
+class local3:
+    def mover(self) -> str:
+        return "la comida llegara en 10 min"
+
+
+def iniciando_entrega(comida: comida) -> None:
+    print(f"Iniciando entrega de {comida.describir()}:")
+    print(comida.mover())
+    print()
+
+
+hamburguesa: hamburguesa = hamburguesa(tipo="hamburguesa", modelo="pequeña")
+pizza: pizza = pizza(tipo="pizza", modelo="grande")
+perro: perro = perro(tipo="perro", modelo="pequeño")
+
+for comida in [local1, local2, local3]:
+    iniciar_entrega(comida=comida)
