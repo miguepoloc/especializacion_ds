@@ -1,0 +1,8 @@
+// Diagrama de Clases
+digraph {
+	Course [label=Course]
+	Student [label=Student]
+	Professor [label=Professor]
+	Professor -> Student [label="asociación"]
+	Professor -> Course [label=usa style=dashed]
+}
