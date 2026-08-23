@@ -12,28 +12,28 @@ class comida(ABC):
     def describir(self) -> str:
         return f"{self.tipo} {self.tamaño}"
 
-class local1:
+class local1(comida):
     def entregar(self) -> str:
         return "la comida llegara en 15 min"
 
-class local2:
+class local2(comida)    :
     def entregar(self) -> str:
         return "la comida llegara en 20 min"
 
-class local3:
-    def mover(self) -> str:
+class local3(comida):
+    def entregar (self) -> str:
         return "la comida llegara en 10 min"
 
 
-def iniciando_entrega(comida: comida) -> None:
+def iniciando_entrega(comida) -> None:
     print(f"Iniciando entrega de {comida.describir()}:")
-    print(comida.mover())
+    print(comida.entregar())
     print()
 
 
-hamburguesa: hamburguesa = hamburguesa(tipo="hamburguesa", modelo="pequeña")
-pizza: pizza = pizza(tipo="pizza", modelo="grande")
-perro: perro = perro(tipo="perro", modelo="pequeño")
+hamburguesa: hamburguesa = local1(tipo="hamburguesa", tamaño="pequeña")
+pizza: pizza = local2(tipo="pizza", tamaño="grande")
+perro: perro = local3(tipo="perro", tamaño="pequeño")
 
-for comida in [local1, local2, local3]:
-    iniciar_entrega(comida=comida)
+for comida in [hamburguesa, pizza, perro]:
+    iniciando_entrega(comida=comida)
