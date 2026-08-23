@@ -8,8 +8,15 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
         },
-        "editor.rulers": [120],
+        "editor.rulers": [
+            120
+        ],
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "flake8.args": ["--config=${workspaceFolder}/.code_quality/.flake8"],
+    "flake8.args": [
+        "--config=${workspaceFolder}/.code_quality/.flake8"
+    ],
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
+    ],
 }
