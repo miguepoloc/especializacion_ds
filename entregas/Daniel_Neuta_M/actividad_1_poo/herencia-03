@@ -1,0 +1,53 @@
+class identificacion:
+    def __init__(self, especie: str, tipo: str, tamaño: str, peso: float) -> None:
+        self.especie: str = especie
+        self.tipo: str = tipo
+        self.tamaño: str = tamaño
+        self.peso: float = peso
+
+
+    def caracteristicas(self) -> None:
+        print(f"Animal de especie {type(self).__name__}")
+
+class gato(identificacion):
+    def __init__(self, especie: str, tipo: str, tamaño: str, peso: float ,color=str) -> None:
+        super().__init__(especie=especie, tipo=tipo, tamaño=tamaño, peso=peso)
+        self.color= color
+
+class lombriz(identificacion):
+    def __init__(self, especie: str, tipo: str, tamaño: str, peso: float ,color=str ) -> None:
+        super().__init__(especie=especie, tipo=tipo, tamaño=tamaño, peso=peso)
+        self.color= color
+
+class serpiente(identificacion):
+    def __init__(self, especie: str, tipo: str, tamaño: str, peso: float ,color=str) -> None:
+        super().__init__(especie=especie, tipo=tipo, tamaño=tamaño, peso=peso)
+        self.color= color
+
+class caracol(identificacion):
+    def __init__(self, especie: str, tipo: str, tamaño: str, peso: float ,color=str) -> None:
+        super().__init__(especie=especie, tipo=tipo, tamaño=tamaño, peso=peso )
+        self.color= color
+    pass
+
+
+a_gato = gato(especie="felino", tipo="vertebrado", tamaño="mediano", peso=5 ,color="blanco")
+a_gato.caracteristicas()
+print(f"Especie: {a_gato.especie}, tipo: {a_gato.tipo}, tamaño: {a_gato.tamaño}, peso: {a_gato.peso} kg, color: {a_gato.color}")
+
+a_lombriz = lombriz(especie="anelidos", tipo="invertebrado", tamaño="pequeño", peso=0.1 ,color="rosado")
+a_lombriz.caracteristicas()
+print(f"Especie: {a_lombriz.especie}, tipo: {a_lombriz.tipo}, tamaño: {a_lombriz.tamaño}, peso: {a_lombriz.peso} kg, color: {a_lombriz.color}")
+
+a_serpiente = serpiente(especie="reptiles", tipo="vertebrado", tamaño="mediano", peso=15 ,color="verde")
+a_serpiente.caracteristicas()
+print(f"Especie: {a_serpiente.especie}, tipo: {a_serpiente.tipo}, tamaño: {a_serpiente.tamaño}, peso: {a_serpiente.peso} kg, color: {a_serpiente.color}")
+
+a_caracol = caracol(especie="molusco", tipo="invertebrado", tamaño="grande", peso=0.2 ,color="naranja")
+a_caracol.caracteristicas()
+print(f"Especie: {a_caracol.especie}, tipo: {a_caracol.tipo}, tamaño: {a_caracol.tamaño}, peso: {a_caracol.peso} kg, color: {a_caracol.color}")
+
+
+#https://editor.plantuml.com/uml/SoWkIImgAStDuKhEIImkLd3CoynDp56evb800cs5bDJYvABCfDJSL0rDhbekgAA0rAAYVBYQvFoS_28eEoSnfIYn25bjM69o8b0faCy5DTkcHbSNOWIA24WXbqDgNWhGCG00
+
+

@@ -1,0 +1,24 @@
+class consulta:
+    def __init__(self, altura: float, edad: int, peso: int, nombre: str) -> None:
+        self.altura: float = altura
+        self.edad: int = edad
+        self.peso: int = peso
+        self.nombre: str = nombre
+
+
+    def paciente(self) -> None:
+        print("se presenta paciente llamado", self.nombre)
+
+    def __str__(self) -> str:
+        return f"presenta los siguientes datos: {self.edad} años, {self.altura} m, {self.peso} kg"
+
+consulta_p = consulta(altura=1.75, edad=25, peso=70, nombre="Daniel Neuta")
+print(consulta_p)
+consulta_p.paciente()
+
+
+
+#https://editor.plantuml.com/uml/LOsn3O0m30HxJ_4bY0rIiOf9Z8Ha71Gx5M9tAA2WEUckkTc3M_HTYRAoEt8rxneCuAG7c61rNveaUBIti4PldB1gvNYR52u9ctr-YDUVSzx4GeQHBfh5oZEz0G00
+
+
+
