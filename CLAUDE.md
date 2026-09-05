@@ -69,3 +69,15 @@ corresponding requirement (or vice versa) breaks the AI-assisted grading flow.
 **Student submission etiquette**: each student works only inside their own
 `entregas/<nombre>/` folder — never edit another student's folder, and don't touch course content
 outside `entregas/` when preparing a submission.
+
+## Code style — always type-hint
+
+`python_basico/` has a dedicated notebook teaching type hints, so every other notebook's code
+should model that practice, not contradict it. Every function and method defined in an example —
+in any notebook under `class_poo/`, `solid/`, `patrones/`, `refactoring/`, or `class_uml/` — must
+have type-hinted parameters and a return type (`-> None` included). A bare
+`def __init__(self, canciones):` leaves the reader guessing what `canciones` is; a student reading
+`patrones/patrones_comportamiento/iterator.ipynb` and hitting an untyped parameter has no way to
+know it's a `list[str]` versus a `str`. This applies to new/edited code and to fixes made while
+touching existing notebooks — don't leave nearby untyped signatures untouched if you're already
+editing that cell.
