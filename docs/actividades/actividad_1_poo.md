@@ -28,7 +28,7 @@ Entregas por debajo de estos mínimos se evalúan igual con la rúbrica, pero no
 Dentro de tu carpeta:
 
 ```
-entregas/<tu_codigo_estudiante>/actividad_1_poo/
+entregas/<tu_nombre_estudiante>/actividad_1_poo/
   poo.ipynb          # o el nombre que prefieras
   diagrama_clases.png (o .puml)
 ```
@@ -37,7 +37,7 @@ entregas/<tu_codigo_estudiante>/actividad_1_poo/
 
 ## Cómo se entrega
 
-1. Rama propia: `entrega/<tu_codigo>-actividad1-poo`.
+1. Rama propia: `entrega/<tu_nombre>-actividad1-poo`.
 2. Crea tu carpeta en `entregas/` con el notebook y el diagrama.
 3. Pull Request con título `Actividad 1 - POO - <Tu Nombre>`.
 4. Trabajo **individual**.

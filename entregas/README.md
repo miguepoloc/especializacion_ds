@@ -4,7 +4,7 @@ Cada estudiante trabaja **exclusivamente dentro de su propia carpeta**, nombrada
 
 ```
 entregas/
-  <tu_codigo_estudiante>/
+  <tu_nombre_estudiante>/
     actividad_1_poo/
     actividad_2_solid/
     actividad_3_patrones/
@@ -16,8 +16,8 @@ Instrucciones detalladas de qué entregar en cada actividad, cómo, y cuándo: v
 
 ## Flujo de entrega (igual para las 3 actividades)
 
-1. Crea una rama propia: `entrega/<tu_codigo>-actividad<N>-<tema>` (ej. `entrega/2024188002-actividad1-poo`).
-2. Copia los archivos de partida indicados en el enunciado de la actividad hacia tu carpeta en `entregas/<tu_codigo>/`.
+1. Crea una rama propia: `entrega/<tu_nombre>-actividad<N>-<tema>` (ej. `entrega/2024188002-actividad1-poo`).
+2. Copia los archivos de partida indicados en el enunciado de la actividad hacia tu carpeta en `entregas/<tu_nombre>/`.
 3. Complétalos y verifica que ejecutan sin errores.
 4. Abre un Pull Request al repositorio con el título indicado en el enunciado de la actividad.
 5. Trabajo individual — no compartas tu carpeta de `entregas/` con otros estudiantes.
